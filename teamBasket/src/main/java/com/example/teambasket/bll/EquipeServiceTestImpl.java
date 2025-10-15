@@ -65,4 +65,14 @@ public class EquipeServiceTestImpl implements EquipeService {
         }
         return "Equipe no ${nbEquipe} a été supprimé";
     }
+
+    @Override
+    public Equipe findEquipe(int nbEquipe) {
+        for(Equipe equipe : equipes) {
+            if(equipe.getNoEquipe() == nbEquipe) {
+                return equipe;
+            }
+        }
+        return null;
+    }
 }

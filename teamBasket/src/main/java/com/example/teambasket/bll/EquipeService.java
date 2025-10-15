@@ -15,4 +15,6 @@ public interface EquipeService {
     Equipe addEquipe(EquipeDTO equipeDto);
 
     String deleteEquipe(int nbEquipe);
+
+    Equipe findEquipe(int nbEquipe);
 }

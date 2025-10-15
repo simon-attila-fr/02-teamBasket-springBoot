@@ -43,4 +43,11 @@ public class EquipeRestController {
         String result  = equipeService.deleteEquipe(nbEquipe);
         return ResponseEntity.status(HttpStatus.OK).body(String.format("Deleted equipe %d", nbEquipe));
     }
+
+    @GetMapping("/getTeamById/{nbEquipe}")
+    public ResponseEntity<Equipe> findEquipe(@PathVariable("nbEquipe") int nbEquipe) {
+        System.out.println("Finding equipe " + nbEquipe);
+        Equipe result = equipeService.findEquipe(nbEquipe);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
 }
