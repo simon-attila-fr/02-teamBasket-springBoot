@@ -5,11 +5,15 @@ import java.util.Objects;
 public class Equipe {
 
     private int noEquipe;
-    private String nom;
+    private String nomEquipe;
 
-    public Equipe(int noEquipe, String nom) {
+    public Equipe() {
+
+    }
+
+    public Equipe(int noEquipe, String nomEquipe) {
         this.noEquipe = noEquipe;
-        this.nom = nom;
+        this.nomEquipe = nomEquipe;
     }
 
     public int getNoEquipe() {
@@ -20,23 +24,23 @@ public class Equipe {
         this.noEquipe = noEquipe;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNomEquipe() {
+        return nomEquipe;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNomEquipe(String nomEquipe) {
+        this.nomEquipe = nomEquipe;
     }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Equipe equipe)) return false;
-        return Objects.equals(nom, equipe.nom);
+        return Objects.equals(nomEquipe, equipe.nomEquipe);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nom);
+        return Objects.hash(nomEquipe);
     }
 
     @Override // Pourquoi Override ? Parce que c'est un objet système ==> chaque classe l'hérite.
@@ -45,8 +49,8 @@ public class Equipe {
         return "Equipe{" +
                 "noEquipe=" +
                 noEquipe +
-                ", nom=" +
-                nom +
+                ", nomEquipe=" +
+                nomEquipe +
                 '}';
     }
 
