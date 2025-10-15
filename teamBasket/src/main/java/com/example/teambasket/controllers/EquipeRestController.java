@@ -50,4 +50,11 @@ public class EquipeRestController {
         Equipe result = equipeService.findEquipe(nbEquipe);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
+
+    @GetMapping("/getTeamByName/{nomEquipe}")
+    public ResponseEntity<Equipe> findEquipeByName(@PathVariable("nomEquipe") String nomEquipe) {
+        System.out.println("Search " + nomEquipe);
+        Equipe result = equipeService.findEquipeByName(nomEquipe);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
 }

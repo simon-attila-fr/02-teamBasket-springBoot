@@ -9,10 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class EquipeServiceTestImpl implements EquipeService {
@@ -70,6 +67,16 @@ public class EquipeServiceTestImpl implements EquipeService {
     public Equipe findEquipe(int nbEquipe) {
         for(Equipe equipe : equipes) {
             if(equipe.getNoEquipe() == nbEquipe) {
+                return equipe;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Equipe findEquipeByName(String nomEquipe) {
+        for(Equipe equipe : equipes) {
+            if(Objects.equals(equipe.getNomEquipe(), nomEquipe)) {
                 return equipe;
             }
         }

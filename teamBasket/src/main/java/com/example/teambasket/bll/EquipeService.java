@@ -17,4 +17,6 @@ public interface EquipeService {
     String deleteEquipe(int nbEquipe);
 
     Equipe findEquipe(int nbEquipe);
+
+    Equipe findEquipeByName(String nomEquipe);
 }
