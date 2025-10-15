@@ -7,9 +7,7 @@ public class Equipe {
     private int noEquipe;
     private String nomEquipe;
 
-    public Equipe() {
-
-    }
+    public Equipe() {}
 
     public Equipe(int noEquipe, String nomEquipe) {
         this.noEquipe = noEquipe;

@@ -57,10 +57,10 @@ public class EquipeServiceTestImpl implements EquipeService {
         for(Equipe equipe : equipes) {
             if(equipe.getNoEquipe() == nbEquipe) {
                 equipes.remove(equipe);
-                break;
+                return "Equipe no " + nbEquipe + " a été supprimé";
             }
         }
-        return "Equipe no ${nbEquipe} a été supprimé";
+        return "Equipe no " + nbEquipe + " ne peut pas être supprimé";
     }
 
     @Override
