@@ -1,3 +1,5 @@
+// Couche métier
+
 package com.example.teambasket.bll;
 
 // Abstract interface, comme en TypeScript.

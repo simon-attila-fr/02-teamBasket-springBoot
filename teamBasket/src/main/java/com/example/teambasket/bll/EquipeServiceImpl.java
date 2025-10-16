@@ -1,3 +1,5 @@
+// Doit être stateless.
+
 package com.example.teambasket.bll;
 
 

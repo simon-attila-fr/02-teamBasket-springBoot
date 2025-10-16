@@ -31,7 +31,7 @@ public class JoueurRestController {
 
     @PostMapping("/add")
     public ResponseEntity<Joueur> addJoueur(@RequestBody JoueurDTO joueurDto) {
-        System.out.println(joueurDto);
+        System.out.println("Ajoute joueur " + joueurDto);
 
         Joueur newJoueur = JoueurService.addJoueur(joueurDto);
 

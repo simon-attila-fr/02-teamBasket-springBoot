@@ -1,3 +1,5 @@
+// Comment syncro l'objet (métier) avec la bdd.
+
 package com.example.teambasket.dal;
 
 import com.example.teambasket.bo.Equipe;
