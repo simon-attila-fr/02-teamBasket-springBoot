@@ -7,4 +7,5 @@ import java.util.List;
 public interface JoueurDAO {
     public List<Joueur> getJoueurs();
     public String addJoueur(Joueur joueur);
+    public String deleteJoueur(int nbJoueur);
 }

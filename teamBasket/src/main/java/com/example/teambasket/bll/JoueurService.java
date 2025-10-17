@@ -11,7 +11,7 @@ public interface JoueurService {
 
     Joueur addJoueur(JoueurDTO joueurDto);
 
-//    String deleteJoueur(int nbJoueur);
+    String deleteJoueur(int nbJoueur);
 //
 //    Joueur findJoeurById(int joueurId);
 //

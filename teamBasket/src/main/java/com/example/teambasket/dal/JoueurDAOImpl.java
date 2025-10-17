@@ -54,6 +54,17 @@ public class JoueurDAOImpl implements JoueurDAO {
         return keyHolder.getKey().toString();
     }
 
+    public String deleteJoueur(int nbJoueur) {
+        String sql = "DELETE FROM JOUEURS WHERE idJoueur = ?";
+        int rowsAffected = jdbcTemplate.update(sql, nbJoueur);
+
+        if(rowsAffected > 0) {
+            return "Le joueur a bien été supprimé.";
+        } else {
+            return "Le joueur n'a pas été supprimé.";
+        }
+    }
+
     class JoueurRowMapper implements RowMapper<Joueur> {
         @Override
         public Joueur mapRow(ResultSet rs, int RowNum) throws SQLException {

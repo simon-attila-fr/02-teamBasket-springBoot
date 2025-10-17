@@ -62,4 +62,10 @@ public class JoueurServiceImpl implements JoueurService {
         joueurDAO.addJoueur(newJoueur);
         return newJoueur;
     }
+
+    @Override
+    public String deleteJoueur(int nbJoueur) {
+        String result = joueurDAO.deleteJoueur(nbJoueur);
+        return result;
+    }
 }

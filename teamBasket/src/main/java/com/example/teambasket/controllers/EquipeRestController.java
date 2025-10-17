@@ -2,7 +2,9 @@ package com.example.teambasket.controllers;
 
 import com.example.teambasket.bll.EquipeService;
 import com.example.teambasket.bll.EquipeServiceImpl;
+import com.example.teambasket.bo.Joueur;
 import com.example.teambasket.dto.EquipeDTO;
+import com.example.teambasket.dto.Joueurs_d_EquipeDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -69,6 +71,13 @@ public class EquipeRestController {
     public ResponseEntity<Equipe> findEquipeByName(@PathVariable("nomEquipe") String nomEquipe) {
         System.out.println("Search " + nomEquipe);
         Equipe result = equipeService.findEquipeByName(nomEquipe);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @GetMapping("/getPlayersOfATeam/{noEquipe}")
+    public ResponseEntity<List<Joueurs_d_EquipeDTO>> getPlayersOfATeam(@PathVariable("noEquipe") int nbEquipe) {
+        System.out.println("Getting players of equipe " + nbEquipe);
+        List<Joueurs_d_EquipeDTO> result = equipeService.listJoueursByEquipe(nbEquipe);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.teambasket.dal;
 
 import com.example.teambasket.bo.Equipe;
+import com.example.teambasket.bo.Joueur;
+import com.example.teambasket.dto.Joueurs_d_EquipeDTO;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -82,6 +84,23 @@ public class EquipeDAOImpl implements EquipeDAO {
 
     }
 
+    @Override
+    public List<Joueurs_d_EquipeDTO> findJoueursByEquipe(int nbEquipe) {
+        String sql = "SELECT\n" +
+                "\te.nom AS nomEquipe,\n" +
+                "\tj.idJoueur," +
+                "\tj.nomJoueur,\n" +
+                "\tj.prenomJoueur,\n" +
+                "\tj.emailJoueur,\n" +
+                "\tj.nbEquipe\n" +
+                "FROM EQUIPES AS e\n" +
+                "INNER JOIN JOUEURS AS j\n" +
+                "ON e.noEquipe = j.nbEquipe\n" +
+                "AND j.nbEquipe = (?);";
+//                "WHERE j.nbEquipe = (?);";
+        return jdbcTemplate.query(sql, new Joueurs_d_EquipeRowMapper(), String.valueOf(nbEquipe));
+    }
+
     class EquipeRowMapper implements RowMapper<Equipe> {
         @Override
         public Equipe mapRow(ResultSet rs, int RowNum) throws SQLException {
@@ -91,5 +110,20 @@ public class EquipeDAOImpl implements EquipeDAO {
 
             return equipe;
         }
+    }
+
+    class Joueurs_d_EquipeRowMapper implements RowMapper<Joueurs_d_EquipeDTO> {
+        @Override
+        public Joueurs_d_EquipeDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Joueurs_d_EquipeDTO dto = new Joueurs_d_EquipeDTO();
+            dto.setNomEquipe(rs.getString("NomEquipe"));
+            dto.setIdJoueur(rs.getInt("idJoueur"));
+            dto.setNomJoueur(rs.getString("NomJoueur"));
+            dto.setPrenomJoueur(rs.getString("PrenomJoueur"));
+            dto.setEmailJoueur(rs.getString("EmailJoueur"));
+            return dto;
+        }
+
+
     }
 }

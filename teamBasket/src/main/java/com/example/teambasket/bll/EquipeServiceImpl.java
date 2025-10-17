@@ -5,7 +5,7 @@ package com.example.teambasket.bll;
 
 import com.example.teambasket.bo.Equipe;
 import com.example.teambasket.dal.EquipeDAO;
-import com.example.teambasket.dto.EquipeDTO;
+import com.example.teambasket.dto.Joueurs_d_EquipeDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -54,9 +54,8 @@ public class EquipeServiceImpl implements EquipeService {
         return result;
     }
 
-
-//    @Override
-//    public Equipe addEquipe(EquipeDAO equipeDAO) {
-//        return null;
-//    }
+    @Override
+    public List<Joueurs_d_EquipeDTO> listJoueursByEquipe(int nbEquipe) {
+        return equipeDAO.findJoueursByEquipe(nbEquipe);
+    }
 }

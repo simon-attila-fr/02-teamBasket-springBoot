@@ -37,4 +37,11 @@ public class JoueurRestController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newJoueur);
     }
+
+    @DeleteMapping("/delete/{nbJoueur}")
+    public ResponseEntity<String> deleteJoueur(@PathVariable int nbJoueur) {
+        System.out.println("Suppression joueur " + nbJoueur);
+        String result = JoueurService.deleteJoueur(nbJoueur);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
 }
